@@ -7,7 +7,8 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import { TagsComponent } from './Components/tags/tags.component';
-import { EventsComponent } from './Components/events/events.component'
+import { EventsComponent } from './Components/events/events.component';
+import { FooterComponent } from './Components/footer/footer.component'
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EventsComponent } from './Components/events/events.component'
     HeaderComponent,
     HomePageComponent,
     TagsComponent,
-    EventsComponent
+    EventsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
