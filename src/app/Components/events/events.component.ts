@@ -15,7 +15,7 @@ export class EventsComponent {
     this.getevents();
   }
   public getevents(){
-    this.http.get('https://api.codingninjas.com/api/v3/events?event_category=CODING_EVENT&event_sub_category=Upcoming&tag_list=Coding%20Concepts&offset=1').subscribe((data) =>{
+    this.http.get('https://api.codingninjas.com/api/v3/events?event_category=ALL_EVENTS&event_sub_category=Upcoming&tag_list=&offset=0').subscribe((data) =>{
       console.log(data);
       this.eventList=data;
     });
