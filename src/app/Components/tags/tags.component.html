@@ -3,7 +3,8 @@
     <!-- {{tagList.data.tags | json}} -->
     <ul  *ngFor="let tag of tagList.data.tags">
         <li>
-            {{tag}}
+            <!-- {{tag}} -->
+            <span (click)="tagfilter(tag)">{{tag}}</span>
         </li>
 
     </ul>

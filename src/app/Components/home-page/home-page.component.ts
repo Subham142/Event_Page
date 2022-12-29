@@ -11,11 +11,13 @@ export class HomePageComponent implements OnInit {
 
   public eventList: any;
  event_category="ALL_EVENTS";
+  public tagList: any;
+  list: any;
 
   url='https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category=Upcoming&tag_list=&offset=0';
 
    event_sub_category="Upcoming";
-  // public tag_list="Coding%20Concepts";
+  public tag_list="Coding%20Concepts";
   // public offset=1;
  
   
@@ -23,7 +25,16 @@ constructor(private http:HttpClient){}
  
   ngOnInit() : void{
     this.getevents();
+    // this.getTags();
   }
+  // public getTags(){
+  //   this.http.get('https://api.codingninjas.com/api/v3/event_tags').subscribe((data) =>{
+  //     console.log(data);
+  //     this.tagList=data;
+  //   });
+  // }
+
+  
 
   solve_allevent(){
     console.log("clicked");
@@ -85,4 +96,29 @@ constructor(private http:HttpClient){}
       this.eventList=data;
     });
   } 
+
+  //  tagfilter(tag: any){
+  //   // console.log('clicked');
+  //   // console.log(tag);
+  //   if(this.list == undefined)
+  //   this.list=tag;
+  //   else{
+  //     const index: number = this.list.indexOf(tag);
+  //     if(index == -1) {
+  //       this.list+=" "+tag;
+  //     }
+  //     else{
+  //       this.list.splice(index, 1);
+  //     }
+  //   }
+  //   console.log(this.list)
+  //   this.tagList=String(this.list);
+  //   this.tagList= encodeURIComponent(this.tagList.trim());
+  //   this.url = 'https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category='+this.event_sub_category+'&tag_list='+this.tagList+'&offset=0';
+  //   console.log(this.url);
+  //   this.getevents(); 
+
+  //   console.log(this.tagList);
+    
+  // }
 }

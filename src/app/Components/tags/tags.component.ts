@@ -8,6 +8,8 @@ import { Component,OnInit } from '@angular/core';
 })
 export class TagsComponent {
   public tagList: any;
+  list: any;
+
   constructor(private http:HttpClient){
      
   }
@@ -20,4 +22,14 @@ export class TagsComponent {
       this.tagList=data;
     });
   } 
+  tagfilter(tag: any){
+    // console.log('clicked');
+    // console.log(tag);
+    if(this.list == undefined)
+    this.list=tag;
+    else
+    this.list+=" "+tag;
+
+    console.log(this.list);
+  }
 }
