@@ -1,4 +1,6 @@
-<div class="margin-align content-space">
+<div>
+
+  <div class="margin-align content-space">
     <h1 class="text-white">EVENTS & NEWS</h1>
     <h3 class="text-white">Learn,Compete & Grow</h3>
   
@@ -13,8 +15,10 @@
   
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-calendar3" viewBox="0 0 16 16">
-                    <path                      d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
-                    <path                      d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                    <path
+                      d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                    <path
+                      d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
                   </svg>
                   All Events
                 </a>
@@ -84,12 +88,12 @@
       </ul>
   
       <!-- Card for every event -->
-      <div class="d-flex flex-row flex-wrap">
-        <div class="col-lg-9 d-flex flex-row flex-wrap" *ngIf="eventList.data.events!.length > 0">
+      <div class="d-flex flex-row flex-wrap justify-content-between">
+        <div class="col-lg-10 d-flex flex-row flex-wrap justify-content-around" *ngIf="eventList.data.events!.length > 0">
           <!-- conditional render -->
   
-          <div class="card col-lg-6 col-md-6 mb-4 mb-md-0" *ngFor="let event of eventList.data.events">
-            <img class="card-img-top" src="{{ event.cover_picture }}" alt="{{ event.cover_picture }}">
+          <div class="card col-lg-5 col-md-6" *ngFor="let event of eventList.data.events | paginate: { itemsPerPage: 4, currentPage: page }">
+            <img class="card-img-top" height="200px" src="{{ event.cover_picture }}" alt="{{ event.cover_picture }}">
             <div class="card-body">
               <h5 class="card-title">{{event.event_type}}</h5>
               <div class="card-body">
@@ -121,9 +125,9 @@
               </div>
               <hr>
             
-              <div class="d-flex justify-content-end" *ngFor="let tp of eventList.data.events">
+              <div class="d-flex justify-content-end">
   <!-- the images of registered candidates using getUsers -->
-              
+  
   
             <button routerLink="/detail/{{event.id}}" class="btn border-0 register-btn text-white px-3 text-uppercase">Register now</button>
               </div>
@@ -149,7 +153,17 @@
         </div> -->
         </div>
       </div>
-      </div>
       
     </div>
+  
+  
+    <!-- Pagination -->
+  
+  <div class ="text-center">
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+  <!-- <p>{{eventList.data.page_count}}</p> -->
+   </div>
    
+    <!--End Pagination -->
+  </div>
+  

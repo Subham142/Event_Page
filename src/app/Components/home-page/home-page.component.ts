@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, TitleStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomePageComponent implements OnInit {
 
   public eventList: any;
+  page: number =1;
  event_category="ALL_EVENTS";
   public tagList: any;
   list: any;

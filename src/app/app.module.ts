@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { TagsComponent } from './Components/tags/tags.component';
 import { EventsComponent } from './Components/events/events.component';
 import { FooterComponent } from './Components/footer/footer.component'
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FooterComponent } from './Components/footer/footer.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
