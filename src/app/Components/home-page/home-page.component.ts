@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
 
   url='https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category=Upcoming&tag_list=&offset=0';
 
-  // public event_sub_category="Upcoming";
+   event_sub_category="Upcoming";
   // public tag_list="Coding%20Concepts";
   // public offset=1;
  
@@ -62,7 +62,23 @@ constructor(private http:HttpClient){}
     console.log(this.url);
     this.getevents();
   }
- 
+  getArchive(){
+    this.event_sub_category = "Archived";
+    this.url = 'https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category='+this.event_sub_category+'&tag_list=&offset=0';
+    this.getevents(); 
+  }
+
+  getUpcoming(){
+    this.event_sub_category = "Upcoming";
+    this.url = 'https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category='+this.event_sub_category+'&tag_list=&offset=0';
+    this.getevents(); 
+  }
+
+  getAllTimeFavorites(){
+    this.event_sub_category = "All Time Favorites";
+    this.url = 'https://api.codingninjas.com/api/v3/events?event_category='+this.event_category+'&'+'event_sub_category='+this.event_sub_category+'&tag_list=&offset=0';
+    this.getevents(); 
+  }
   public getevents(){
     this.http.get(this.url).subscribe((data) =>{
       console.log(data);
